@@ -1,4 +1,5 @@
 #include <iostream>		// 標準入出力用ライブラリを読み込む
+#include <iomanip>		// 入出力を制御するライブラリを読み込む(setf, precision に必要
 using namespace std;		// 名前空間 std をデフォルトで利用する
 
 // メインルーチン
@@ -10,5 +11,7 @@ int main ( void ) // 引数無しで整数(int)型の戻り値を返す main 関
   cin >> latitude >> longitude;	// 標準入力から latitude と longitude の値を獲得
 
   // 標準出力(cout)に緯度と経度を表示
+  cout.setf(ios::fixed);	// 固定小数表記を指定
+  cout.precision(6);		// 小数点以下の桁数を指定
   cout << "緯度:" << latitude << " 経度:" << longitude << endl; // 文字列と組み合わせて表示
 }
