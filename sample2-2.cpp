@@ -1,5 +1,4 @@
 #include <iostream>		// 標準入出力用ライブラリを読み込む
-#include <iomanip>		// 入出力を制御するライブラリを読み込む(setf, precision に必要
 using namespace std;		// 名前空間 std をデフォルトで利用する
 
 // メインルーチン
