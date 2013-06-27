@@ -4,8 +4,9 @@ using namespace std;            // 名前空間 std をデフォルトで利用�
 // メインルーチン
 int main ( void ) 		// 引数無しで整数(int)型の戻り値を返す main 関数を定義
 {
-  double latitude = 38.2523;	// 緯度を格納する倍精度実数(double)型の変数
-  double longitude = 140.856;	// 経度を格納する倍精度実数(double)型の変数
+  // 緯度・経度を格納するための倍精度実数(double)型の変数を定義
+  double latitude = 38.2523;	// 緯度
+  double longitude = 140.856;	// 経度
 
   // 標準出力(cout)に KML を表示
   // KMLを使うためのヘッダを出力
