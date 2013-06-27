@@ -20,8 +20,8 @@ int main ( void ) // 引数無しで整数(int)型の戻り値を返す main 関
 
   if ( latitude < lat_min	// 「緯度 latitude が最小値 lat_min より小さい」
        || latitude > lat_max	// または「緯度 latitude が最小値 lat_max より大きい」
-       || longitude < lon_min	// または「経度 longitude が最小値 lng_min より小さい」
-       || longitude > lon_max )	// または「経度 longitude が最小値 lng_max より大きい」
+       || longitude < lng_min	// または「経度 longitude が最小値 lng_min より小さい」
+       || longitude > lng_max )	// または「経度 longitude が最小値 lng_max より大きい」
 				// ならば「この点は宮城県外である」と判定される
     {		       
       cout << "緯度，経度もしくはその両方が範囲外です" << endl;
