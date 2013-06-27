@@ -1,0 +1,1 @@
+klip() { dcop klipper klipper setClipboardContents "$(cat $1)"; }
