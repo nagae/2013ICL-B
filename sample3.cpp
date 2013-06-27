@@ -18,23 +18,16 @@ int main ( void ) // 引数無しで整数(int)型の戻り値を返す main 関
   double lat_min =  37.77333, lat_max =  39.002778; // 南端の緯度(緯度の最小値)および北端の緯度(緯度の最大値)
   double lng_min = 140.27500, lng_max = 141.675278; // 西端の経度(経度の最小値)および東端の経度(経度の最大値)
 
-  if ( latitude >= lat_min && latitude <= lat_max )
-    // 緯度 latitude が範囲内[lat_min, lat_max]内である場合
-    {
-      if ( longitude >= lng_min&& longitude <= lng_max )
-	// 経度 longitude が範囲内[lng_min, lng_max]内である場合
-	{
-	  cout << "この点は(おそらく)宮城県内です" << endl; // 緯度・経度ともに範囲内ならメッセージを表示
-	}
-      else
-	// 経度 longitude が範囲内[lng_min, lng_max]内でない場合
-	{
-	  cout << "緯度は範囲内ですが，経度が範囲外です" << endl;
-	}
+  if ( latitude < lat_min	// 「緯度 latitude が最小値 lat_min より小さい」
+       || latitude > lat_max	// または「緯度 latitude が最小値 lat_max より大きい」
+       || longitude < lon_min	// または「経度 longitude が最小値 lng_min より小さい」
+       || longitude > lon_max )	// または「経度 longitude が最小値 lng_max より大きい」
+				// ならば「この点は宮城県外である」と判定される
+    {		       
+      cout << "緯度，経度もしくはその両方が範囲外です" << endl;
     }
-  else
-    // 緯度 latitude が範囲内[lat_min, lat_max]内でない場合
-    {
-    cout << "緯度が範囲外です" << endl;
-  }
+  else 				// 以上の条件のどれにも該当しないなら「宮城県内である」と判定される
+    { 
+      cout << "この点は(おそらく)宮城県内です" << endl;
+    }
 }
