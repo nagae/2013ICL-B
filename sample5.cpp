@@ -15,22 +15,23 @@ int main ( void ) { // 引数無しで整数(int)型の戻り値を返す main 関数を定義
   while ( !fin.eof() ) {	 // fin がファイルの終わりまできていない間繰り返す
     // ファイルから1行読み込んで文字列に一時保管
     string line;		 // 読み込み用文字列
-    getline(fin, line);	 // 1行読み込む
+    getline(fin, line);		 // 1行読み込む
 
     // 一時保管された文字列からバス停データを読み込む
     int ID;			// バス停ID用の整数型の変数を定義
     char name[100];		// バス停名用の文字列型の変数を定義
     double latitude, longitude; // 緯度・経度用の2つの倍精度実数型の変数を定義
-    sscanf(line.c_str(),
+    sscanf(line.c_str(),	// 書式つきで読み込む
 	   "%d,%lf,%lf,%[^\n]",
 	   &ID, &latitude, &longitude, name
 	   );
-    cout << "<Placemark>" 
-	 << "<Point><coordinates>"
+    // Placemark タグを出力
+    cout << "<Placemark>"
+	 << "<Point><coordinates>" // 座標を出力
 	 << latitude << "," << longitude << ",0"
 	 << "</coordinates></Point>"
-	 << "<name>" << name << "</name>"
-	 << "<description>[" << ID << "]" << name << "</description>"
+	 << "<name>" << name << "</name>" // バス停の名前を出力
+	 << "<description>[" << ID << "]" << name << "</description>" // 説明にはバス停IDも記述
 	 << "</Placemark>" << endl;
   }
 
