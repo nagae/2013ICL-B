@@ -1,39 +1,46 @@
-#include <iostream>		// •W€“üo—Í—pƒ‰ƒCƒuƒ‰ƒŠ‚ð“Ç‚Ýž‚Þ
-#include <iomanip> 		// “üo—Í•\Ž¦¸“x‚ðŽw’è‚·‚é‚½‚ß‚Ìƒ‰ƒCƒuƒ‰ƒŠ‚ð“Ç‚Ýž‚Þ
-#include <fstream>	       	// ƒtƒ@ƒCƒ‹“üo—Í—pƒ‰ƒCƒuƒ‰ƒŠ‚ð“Ç‚Ýž‚Þ
-#include <string>		// •¶Žš—ñ—pƒ‰ƒCƒuƒ‰ƒŠ‚ð“Ç‚Ýž‚Þ
+#include <iostream>		// É¸½àÆþ½ÐÎÏÍÑ¥é¥¤¥Ö¥é¥ê¤òÆÉ¤ß¹þ¤à
+#include <iomanip> 		// Æþ½ÐÎÏÉ½¼¨ÀºÅÙ¤ò»ØÄê¤¹¤ë¤¿¤á¤Î¥é¥¤¥Ö¥é¥ê¤òÆÉ¤ß¹þ¤à
+#include <fstream>	       	// ¥Õ¥¡¥¤¥ëÆþ½ÐÎÏ¥¹¥È¥ê¡¼¥àÍÑ¥é¥¤¥Ö¥é¥ê¤òÆÉ¤ß¹þ¤à
 
-using namespace std;		// –¼‘O‹óŠÔ std ‚ðƒfƒtƒHƒ‹ƒg‚Å—˜—p‚·‚é
+using namespace std;		// Ì¾Á°¶õ´Ö std ¤ò¥Ç¥Õ¥©¥ë¥È¤ÇÍøÍÑ¤¹¤ë
 
-// ƒƒCƒ“ƒ‹[ƒ`ƒ“
-int main ( void ) { // ˆø”–³‚µ‚Å®”(int)Œ^‚Ì–ß‚è’l‚ð•Ô‚· main ŠÖ”‚ð’è‹`
+// ¥á¥¤¥ó¥ë¡¼¥Á¥ó
+int main ( void ) { // °ú¿ôÌµ¤·¤ÇÀ°¿ô(int)·¿¤ÎÌá¤êÃÍ¤òÊÖ¤¹ main ´Ø¿ô¤òÄêµÁ
+  ifstream fin("bus-short.csv"); // ¥Õ¥¡¥¤¥ëÆþÎÏ¥¹¥È¥ê¡¼¥à
+
+  // KML¤ò»È¤¦¤¿¤á¤Î¥Ø¥Ã¥À¤ò½ÐÎÏ
   cout << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" << endl;
   cout << "<kml xmlns=\"http://www.opengis.net/kml/2.2\">" << endl;
   cout << "  <Folder>" << endl;
-  
-  ifstream fin("bus-short.csv"); // ƒtƒ@ƒCƒ‹“ü—ÍƒXƒgƒŠ[ƒ€
-  while ( !fin.eof() ) {	 // fin ‚ªƒtƒ@ƒCƒ‹‚ÌI‚í‚è‚Ü‚Å‚«‚Ä‚¢‚È‚¢ŠÔŒJ‚è•Ô‚·
-    // ƒtƒ@ƒCƒ‹‚©‚ç1s“Ç‚Ýž‚ñ‚Å•¶Žš—ñ‚ÉˆêŽž•ÛŠÇ
-    string line;		 // “Ç‚Ýž‚Ý—p•¶Žš—ñ
-    getline(fin, line);		 // 1s“Ç‚Ýž‚Þ
 
-    // ˆêŽž•ÛŠÇ‚³‚ê‚½•¶Žš—ñ‚©‚çƒoƒX’âƒf[ƒ^‚ð“Ç‚Ýž‚Þ
-    int ID;			// ƒoƒX’âID—p‚Ì®”Œ^‚Ì•Ï”‚ð’è‹`
-    char name[100];		// ƒoƒX’â–¼—p‚Ì•¶Žš—ñŒ^‚Ì•Ï”‚ð’è‹`
-    double latitude, longitude; // ˆÜ“xEŒo“x—p‚Ì2‚Â‚Ì”{¸“xŽÀ”Œ^‚Ì•Ï”‚ð’è‹`
-    sscanf(line.c_str(),	// ‘Ž®‚Â‚«‚Å“Ç‚Ýž‚Þ
-	   "%d,%lf,%lf,%[^\n]",
-	   &ID, &latitude, &longitude, name
-	   );
-    // Placemark ƒ^ƒO‚ðo—Í
+  // ¥Õ¥¡¥¤¥ë¤«¤é¥Ç¡¼¥¿¤òÆÉ¤ß¹þ¤ó¤ÇÉ½¼¨¤µ¤»¤ë
+  while ( !fin.eof() ) {	 // fos ¤¬¥Õ¥¡¥¤¥ë¤ÎºÇ¸å¤ò»Ø¤µ¤Ê¤¤¸Â¤ê¡¤½èÍý¤ò·«¤êÊÖ¤¹
+    // ¥Õ¥¡¥¤¥ëÆþÎÏ¥¹¥È¥ê¡¼¥à¤«¤é¥Ç¡¼¥¿¤òÆÉ¤ß¹þ¤à
+    int ID;			// ¥Ð¥¹ÄäIDÍÑ¤ÎÀ°¿ô·¿¤ÎÊÑ¿ô¤òÄêµÁ
+    double latitude, longitude; // °ÞÅÙ¡¦·ÐÅÙÍÑ¤Î2¤Ä¤ÎÇÜÀºÅÙ¼Â¿ô·¿¤ÎÊÑ¿ô¤òÄêµÁ
+    string name;		// ¥Ð¥¹Ää¤ÎÌ¾Á°
+    fin >> ID >> latitude >> longitude; // ID, °ÞÅÙ¡¤·ÐÅÙ¤Î½ç¤Ë¶õÇò¤Ç¶èÀÚ¤é¤ì¤¿¥Ç¡¼¥¿¤òÆÉ¤ß¹þ¤à
+    // ¥Ð¥¹Ää¤ÎÌ¾Á°¤Ï getline ´Ø¿ô¤ò»È¤Ã¤Æ¼èÆÀ¤¹¤ë¡¥
+    // >> ±é»»»Ò¤ò»È¤¦¤È¡¤¥Ð¥¹ÄäÌ¾¤Ë¶õÇò¤¬Æþ¤Ã¤Æ¤¤¤ë¤È¤­¡¤¤½¤³¤Ç¥Ç¡¼¥¿¤¬½ª¤ï¤ê¤À¤È»×¤Ã¤Æ¤·¤Þ¤¦¡¥
+    // geline ´Ø¿ô¤ò»È¤¦¤³¤È¤Ç¡¤¤½¤Î¹Ô¤ÎºÇ¸å¤Þ¤Ç¤ò¤Ò¤È¤Þ¤È¤Þ¤êÊ¸»úÎó¤È¤·¤Æ name ¤ËÆÉ¤ß¹þ¤á¤ë
+    getline( fin, name );
+    // ¤¿¤À¤·¡¤getline ´Ø¿ô¤ò»È¤¦¤È¡¤·ÐÅÙ¤È¥Ð¥¹ÄäÌ¾¤ò¶èÀÚ¤Ã¤Æ¤¤¤¿¶õÇò¤â¥Ç¡¼¥¿¤È¤·¤ÆÆÉ¤ß¹þ¤ó¤Ç¤·¤Þ¤¦¤Î¤Ç¡¤
+    // ºÇ½é¤Î1Ê¸»ú¤òÌµ»ë¤¹¤ë
+    name = name.substr(1);
+    
+    // É¸½à½ÐÎÏ(cout)¤ËÆÉ¤ß¹þ¤ó¤À¥Ç¡¼¥¿¤ò²Ã¹©¤·¤ÆÉ½¼¨¤¹¤ë
+    cout.setf(ios::fixed);	// ¸ÇÄê¾®¿ôÉ½µ­¤ò»ØÄê
+    cout.precision(8);		// ¾®¿ôÅÀ°Ê²¼¤Î·å¿ô¤ò»ØÄê
+    // Placemark ¥¿¥°¤ò½ÐÎÏ
     cout << "<Placemark>"
-	 << "<Point><coordinates>" // À•W‚ðo—Í
+	 << "<Point><coordinates>" // ºÂÉ¸¤ò½ÐÎÏ
 	 << latitude << "," << longitude << ",0"
 	 << "</coordinates></Point>"
-	 << "<name>" << name << "</name>" // ƒoƒX’â‚Ì–¼‘O‚ðo—Í
-	 << "<description>[" << ID << "]" << name << "</description>" // à–¾‚É‚ÍƒoƒX’âID‚à‹Lq
+	 << "<name>" << name << "</name>" // ¥Ð¥¹Ää¤ÎÌ¾Á°¤ò½ÐÎÏ
+	 << "<description>[" << ID << "]" << name << "</description>" // ÀâÌÀ¤Ë¤Ï¥Ð¥¹ÄäID¤âµ­½Ò
 	 << "</Placemark>" << endl;
   }
 
+  // KML¤ò»È¤¦¤¿¤á¤Î¥Õ¥Ã¥¿¤ò½ÐÎÏ
   cout << "</Folder></kml>" << endl;
 }
