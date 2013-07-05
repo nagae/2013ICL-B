@@ -24,9 +24,9 @@ int main ( void ) { // 引数無しで整数(int)型の戻り値を返す main 関数を定義
     // 標準出力(cout)に読み込んだデータを加工して表示する
     cout.setf(ios::fixed);	// 固定小数表記を指定
     cout.precision(8);		// 小数点以下の桁数を指定
-    cout << setw(4) << ID << " "
-	 << setw(10) << latitude << " "
-	 << setw(10) << longitude << " "
-	  << name << endl;
+    cout << "ID:"       << setw(4) << ID << " "
+	 << " 緯度:"    << setw(10) << latitude << " "
+	 << " 経度:"    << setw(10) << longitude << " "
+	 << " バス停名:" << name << endl;
   }
 }
