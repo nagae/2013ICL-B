@@ -1,32 +1,32 @@
-#include <iostream>		// •W€“üo—Í—pƒ‰ƒCƒuƒ‰ƒŠ‚ð“Ç‚Ýž‚Þ
-#include <iomanip> 		// “üo—Í•\Ž¦¸“x‚ðŽw’è‚·‚é‚½‚ß‚Ìƒ‰ƒCƒuƒ‰ƒŠ‚ð“Ç‚Ýž‚Þ
-#include <fstream>	       	// ƒtƒ@ƒCƒ‹“üo—ÍƒXƒgƒŠ[ƒ€—pƒ‰ƒCƒuƒ‰ƒŠ‚ð“Ç‚Ýž‚Þ
+#include <iostream>		// É¸½àÆþ½ÐÎÏÍÑ¥é¥¤¥Ö¥é¥ê¤òÆÉ¤ß¹þ¤à
+#include <iomanip> 		// Æþ½ÐÎÏÉ½¼¨ÀºÅÙ¤ò»ØÄê¤¹¤ë¤¿¤á¤Î¥é¥¤¥Ö¥é¥ê¤òÆÉ¤ß¹þ¤à
+#include <fstream>	       	// ¥Õ¥¡¥¤¥ëÆþ½ÐÎÏ¥¹¥È¥ê¡¼¥àÍÑ¥é¥¤¥Ö¥é¥ê¤òÆÉ¤ß¹þ¤à
 
-using namespace std;		// –¼‘O‹óŠÔ std ‚ðƒfƒtƒHƒ‹ƒg‚Å—˜—p‚·‚é
+using namespace std;		// Ì¾Á°¶õ´Ö std ¤ò¥Ç¥Õ¥©¥ë¥È¤ÇÍøÍÑ¤¹¤ë
 
-// ƒƒCƒ“ƒ‹[ƒ`ƒ“
-int main ( void ) { // ˆø”–³‚µ‚Å®”(int)Œ^‚Ì–ß‚è’l‚ð•Ô‚· main ŠÖ”‚ð’è‹`
-  ifstream fin("bus-short.csv"); // ƒtƒ@ƒCƒ‹“ü—ÍƒXƒgƒŠ[ƒ€
+// ¥á¥¤¥ó¥ë¡¼¥Á¥ó
+int main ( void ) { // °ú¿ôÌµ¤·¤ÇÀ°¿ô(int)·¿¤ÎÌá¤êÃÍ¤òÊÖ¤¹ main ´Ø¿ô¤òÄêµÁ
+  ifstream fin("bus-short.csv"); // ¥Õ¥¡¥¤¥ëÆþÎÏ¥¹¥È¥ê¡¼¥à
   while ( !fin.eof() ) {
-    // ƒtƒ@ƒCƒ‹“ü—ÍƒXƒgƒŠ[ƒ€‚©‚çƒf[ƒ^‚ð“Ç‚Ýž‚Þ
-    int ID;			// ƒoƒX’âID—p‚Ì®”Œ^‚Ì•Ï”‚ð’è‹`
-    double latitude, longitude; // ˆÜ“xEŒo“x—p‚Ì2‚Â‚Ì”{¸“xŽÀ”Œ^‚Ì•Ï”‚ð’è‹`
-    string name;		// ƒoƒX’â‚Ì–¼‘O
-    fin >> ID >> latitude >> longitude; // ID, ˆÜ“xCŒo“x‚Ì‡‚É‹ó”’‚Å‹æØ‚ç‚ê‚½ƒf[ƒ^‚ð“Ç‚Ýž‚Þ
-    // ƒoƒX’â‚Ì–¼‘O‚Í getline ŠÖ”‚ðŽg‚Á‚ÄŽæ“¾‚·‚éD
-    // >> ‰‰ŽZŽq‚ðŽg‚¤‚ÆCƒoƒX’â–¼‚É‹ó”’‚ª“ü‚Á‚Ä‚¢‚é‚Æ‚«C‚»‚±‚Åƒf[ƒ^‚ªI‚í‚è‚¾‚ÆŽv‚Á‚Ä‚µ‚Ü‚¤D
-    // geline ŠÖ”‚ðŽg‚¤‚±‚Æ‚ÅC‚»‚Ìs‚ÌÅŒã‚Ü‚Å‚ð‚Ð‚Æ‚Ü‚Æ‚Ü‚è•¶Žš—ñ‚Æ‚µ‚Ä name ‚É“Ç‚Ýž‚ß‚é
+    // ¥Õ¥¡¥¤¥ëÆþÎÏ¥¹¥È¥ê¡¼¥à¤«¤é¥Ç¡¼¥¿¤òÆÉ¤ß¹þ¤à
+    int ID;			// ¥Ð¥¹ÄäIDÍÑ¤ÎÀ°¿ô·¿¤ÎÊÑ¿ô¤òÄêµÁ
+    double latitude, longitude; // °ÞÅÙ¡¦·ÐÅÙÍÑ¤Î2¤Ä¤ÎÇÜÀºÅÙ¼Â¿ô·¿¤ÎÊÑ¿ô¤òÄêµÁ
+    string name;		// ¥Ð¥¹Ää¤ÎÌ¾Á°
+    fin >> ID >> latitude >> longitude; // ID, °ÞÅÙ¡¤·ÐÅÙ¤Î½ç¤Ë¶õÇò¤Ç¶èÀÚ¤é¤ì¤¿¥Ç¡¼¥¿¤òÆÉ¤ß¹þ¤à
+    // ¥Ð¥¹Ää¤ÎÌ¾Á°¤Ï getline ´Ø¿ô¤ò»È¤Ã¤Æ¼èÆÀ¤¹¤ë¡¥
+    // >> ±é»»»Ò¤ò»È¤¦¤È¡¤¥Ð¥¹ÄäÌ¾¤Ë¶õÇò¤¬Æþ¤Ã¤Æ¤¤¤ë¤È¤­¡¤¤½¤³¤Ç¥Ç¡¼¥¿¤¬½ª¤ï¤ê¤À¤È»×¤Ã¤Æ¤·¤Þ¤¦¡¥
+    // geline ´Ø¿ô¤ò»È¤¦¤³¤È¤Ç¡¤¤½¤Î¹Ô¤ÎºÇ¸å¤Þ¤Ç¤ò¤Ò¤È¤Þ¤È¤Þ¤êÊ¸»úÎó¤È¤·¤Æ name ¤ËÆÉ¤ß¹þ¤á¤ë
     getline( fin, name );
-    // ‚½‚¾‚µCgetline ŠÖ”‚ðŽg‚¤‚ÆCŒo“x‚ÆƒoƒX’â–¼‚ð‹æØ‚Á‚Ä‚¢‚½‹ó”’‚àƒf[ƒ^‚Æ‚µ‚Ä“Ç‚Ýž‚ñ‚Å‚µ‚Ü‚¤‚Ì‚ÅC
-    // Å‰‚Ì1•¶Žš‚ð–³Ž‹‚·‚é
+    // ¤¿¤À¤·¡¤getline ´Ø¿ô¤ò»È¤¦¤È¡¤·ÐÅÙ¤È¥Ð¥¹ÄäÌ¾¤ò¶èÀÚ¤Ã¤Æ¤¤¤¿¶õÇò¤â¥Ç¡¼¥¿¤È¤·¤ÆÆÉ¤ß¹þ¤ó¤Ç¤·¤Þ¤¦¤Î¤Ç¡¤
+    // ºÇ½é¤Î1Ê¸»ú¤òÌµ»ë¤¹¤ë
     name = name.substr(1);
     
-    // •W€o—Í(cout)‚É“Ç‚Ýž‚ñ‚¾ƒf[ƒ^‚ð‰ÁH‚µ‚Ä•\Ž¦‚·‚é
-    cout.setf(ios::fixed);	// ŒÅ’è¬”•\‹L‚ðŽw’è
-    cout.precision(8);		// ¬”“_ˆÈ‰º‚ÌŒ…”‚ðŽw’è
+    // É¸½à½ÐÎÏ(cout)¤ËÆÉ¤ß¹þ¤ó¤À¥Ç¡¼¥¿¤ò²Ã¹©¤·¤ÆÉ½¼¨¤¹¤ë
+    cout.setf(ios::fixed);	// ¸ÇÄê¾®¿ôÉ½µ­¤ò»ØÄê
+    cout.precision(8);		// ¾®¿ôÅÀ°Ê²¼¤Î·å¿ô¤ò»ØÄê
     cout << "ID:"       << setw(4) << ID << " "
-	 << " ˆÜ“x:"    << setw(10) << latitude << " "
-	 << " Œo“x:"    << setw(10) << longitude << " "
-	 << " ƒoƒX’â–¼:" << name << endl;
+	 << " °ÞÅÙ:"    << setw(10) << latitude << " "
+	 << " ·ÐÅÙ:"    << setw(10) << longitude << " "
+	 << " ¥Ð¥¹ÄäÌ¾:" << name << endl;
   }
 }
