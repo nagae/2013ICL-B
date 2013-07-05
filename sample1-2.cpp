@@ -24,7 +24,7 @@ int main ( void ) 		// 引数無しで整数(int)型の戻り値を返す main �
     // 目印の構成要素として1つの点(マーク)を<Point>〜</Point>の間に定義
     // この点の座標を<coordinates>〜</coordinates>の間に経度,緯度,標高の順に記述
        << "    <Point><coordinates>\n"
-       << "      " << longitude << "," << latitude << "0\n"
+       << "      " << longitude << "," << latitude << ",0\n"
        << "    </coordinates></Point>\n"
        << "  </Placemark>" << endl;
 

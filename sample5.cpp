@@ -34,7 +34,7 @@ int main ( void ) { // 引数無しで整数(int)型の戻り値を返す main 関数を定義
     // Placemark タグを出力
     cout << "<Placemark>"
 	 << "<Point><coordinates>" // 座標を出力
-	 << latitude << "," << longitude << ",0"
+	 << longitude << "," << latitude << ",0"
 	 << "</coordinates></Point>"
 	 << "<name>" << name << "</name>" // バス停の名前を出力
 	 << "<description>[" << ID << "]" << name << "</description>" // 説明にはバス停IDも記述
