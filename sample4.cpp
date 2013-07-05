@@ -7,7 +7,7 @@ using namespace std;		// 名前空間 std をデフォルトで利用する
 // メインルーチン
 int main ( void ) { // 引数無しで整数(int)型の戻り値を返す main 関数を定義
   ifstream fin("bus-short.csv"); // ファイル入力ストリーム
-  while ( !fin.eof() ) {
+  while ( !fin.eof() ) {	 // fos がファイルの最後を指さない限り，処理を繰り返す
     // ファイル入力ストリームからデータを読み込む
     int ID;			// バス停ID用の整数型の変数を定義
     double latitude, longitude; // 緯度・経度用の2つの倍精度実数型の変数を定義
@@ -24,9 +24,9 @@ int main ( void ) { // 引数無しで整数(int)型の戻り値を返す main 関数を定義
     // 標準出力(cout)に読み込んだデータを加工して表示する
     cout.setf(ios::fixed);	// 固定小数表記を指定
     cout.precision(8);		// 小数点以下の桁数を指定
-    cout << "ID:"       << setw(4) << ID << " "
-	 << " 緯度:"    << setw(10) << latitude << " "
-	 << " 経度:"    << setw(10) << longitude << " "
+    cout << "ID:"       << ID
+	 << " 緯度:"    << latitude
+	 << " 経度:"    << longitude
 	 << " バス停名:" << name << endl;
   }
 }
