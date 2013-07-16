@@ -8,12 +8,12 @@ using namespace std;		// 名前空間 std をデフォルトで利用する
 int main ( void ) { // 引数無しで整数(int)型の戻り値を返す main 関数を定義
   ifstream fin("bus-short.csv"); // ファイル入力ストリーム
 
-  double target_lng = 38.260297, target_lat =140.88204; // 目標(仙台駅)の緯度・経度
+  double target_lat = 38.260297, target_lng =140.88204; // 目標(仙台駅)の緯度・経度
   double range = .005;					// 表示する緯度・経度の範囲
-  double lng_min = target_lng - range;			// 表示範囲の南端(緯度の最小値)
-  double lng_max = target_lng + range;			// 表示範囲の北端(緯度の最大値)
   double lat_min = target_lat - range;			// 表示範囲の西端(経度の最小値)
   double lat_max = target_lat + range;			// 表示範囲の東端(経度の最大値)
+  double lng_min = target_lng - range;			// 表示範囲の南端(緯度の最小値)
+  double lng_max = target_lng + range;			// 表示範囲の北端(緯度の最大値)
 
   // KMLを使うためのヘッダを出力
   cout << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" << endl;
