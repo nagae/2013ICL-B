@@ -9,7 +9,7 @@ int main ( void ) { // 引数無しで整数(int)型の戻り値を返す main 関数を定義
   ifstream fin("bus-short.csv"); // ファイル入力ストリーム
 
   double target_lat = 38.260297, target_lng =140.88204; // 目標(仙台駅)の緯度・経度
-  double range = .005;					// 表示する緯度・経度の範囲
+  double range = .05;					// 表示する緯度・経度の範囲
   double lat_min = target_lat - range;			// 表示範囲の西端(経度の最小値)
   double lat_max = target_lat + range;			// 表示範囲の東端(経度の最大値)
   double lng_min = target_lng - range;			// 表示範囲の南端(緯度の最小値)
@@ -21,7 +21,7 @@ int main ( void ) { // 引数無しで整数(int)型の戻り値を返す main 関数を定義
   cout << "  <Folder>" << endl;
 
   // ファイルからデータを読み込んで表示させる
-  while ( !fin.eof() ) {	 // fos がファイルの最後を指さない限り，処理を繰り返す
+  while ( !fin.eof() ) {        // fin がファイルの最後を指さない限り，処理を繰り返す
     // ファイル入力ストリームからデータを読み込む
     int ID;			// バス停ID用の整数型の変数を定義
     double latitude, longitude; // 緯度・経度用の2つの倍精度実数型の変数を定義
@@ -47,7 +47,7 @@ int main ( void ) { // 引数無しで整数(int)型の戻り値を返す main 関数を定義
       {
 	// 標準出力(cout)に読み込んだデータを加工して表示する
 	cout.setf(ios::fixed);	// 固定小数表記を指定
-	cout.precision(8);		// 小数点以下の桁数を指定
+	cout.precision(8);	// 小数点以下の桁数を指定
 	// Placemark タグを出力
 	cout << "<Placemark>"
 	     << "<Point><coordinates>" // 座標を出力
